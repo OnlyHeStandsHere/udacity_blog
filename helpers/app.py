@@ -22,8 +22,8 @@ def hash_password(password, salt=''):
     return "{}|".format(salt) + get_hash(password + salt)
 
 
-def make_secure_cookie(self, value):
-    return "{}|{}".format(value, hashlib.sha256(self.SECRET + str(value)).hexdigest())
+def make_secure_cookie(value):
+    return "{}|{}".format(value, hashlib.sha256(SECRET + str(value)).hexdigest())
 
 
 def validate_cookie(cookie):

@@ -4,7 +4,7 @@ from models.models import Post
 
 class NewPostHandler(BlogHandler):
     def get(self):
-        self.render("newpost.html")
+        self.render("newpost.html", user=self.user)
 
     def post(self):
         subject = self.request.get("subject")

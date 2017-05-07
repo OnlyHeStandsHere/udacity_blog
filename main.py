@@ -14,23 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import webapp2
-# from models.models import *
+
 from handlers.blog import *
 from handlers.post import *
-# from google.appengine.ext import db
-# import auth
-import re
-
-
+from handlers.signup import *
+from handlers.login import *
 
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/newpost', NewPostHandler),
-    ('/post/([0-9]+)', PostHandler)
-    # ('/signup', SignupHandler),
-    # ('/welcome', WelcomeHandler),
-    # ('/login', LogInHandler),
-    # ('/logout', LogOutHandler)
+    ('/post/([0-9]+)', PostHandler),
+    ('/signup', SignupHandler),
+    ('/welcome', WelcomeHandler),
+    ('/login', LogInHandler),
+    ('/logout', LogOutHandler)
 ], debug=True)

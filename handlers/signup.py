@@ -1,11 +1,6 @@
-from blog import BlogHandler
+from blog import BlogHandler, USER_RE, PASSWORD_RE, EMAIL_RE
 from models.models import User
 from helpers import app
-import re
-
-USER_RE = re.compile("^[a-zA-Z0-9_-]{3,20}$")
-PASSWORD_RE = re.compile("^.{3,20}$")
-EMAIL_RE = re.compile("^[\S]+@[\S]+.[\S]+$")
 
 
 class SignupHandler(BlogHandler):
@@ -45,4 +40,5 @@ class SignupHandler(BlogHandler):
             user_hash = app.make_secure_cookie(user_id)
             self.response.set_cookie("user_id", user_hash)
             self.redirect('/welcome')
+
 
