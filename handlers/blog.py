@@ -2,7 +2,7 @@ import jinja2
 import webapp2
 import os
 from helpers import app
-from models.models import User
+from models.models import User, Post
 import re
 
 USER_RE = re.compile("^[a-zA-Z0-9_-]{3,20}$")
@@ -41,9 +41,11 @@ class BlogHandler(webapp2.RequestHandler):
         if user_id:
             self.user = User.fetch_by_user_id_cookie(user_id)
 
+
 class HomeHandler(BlogHandler):
     def get(self):
-        self.render("home.html")
+        posts = Post.gql("ORDER BY created DESC LIMIT 20")
+        self.render("home.html", posts=posts)
 
 
 class WelcomeHandler(BlogHandler):

@@ -1,26 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>New Post</title>
-</head>
-<body>
-    <h1>user is {{ user.user_name }}</h1>
-    <form method="post">
-        <label>
-            <div>Subject</div>
-            <input type="text" name="subject" value="{{subject}}">
-        </label>
-        <label>
-            <div>Content</div>
-            <textarea name="content">{{content}}</textarea>
-        </label>
-        <div>
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-        <div>
-            {{error}}
-        </div>
-</body>
-</html>
+{% extends "layout.html"%}
+
+{% block title %}
+<h1>New Blog Post</h1>
+{% endblock %}
+
+{% block content%}
+<form method="post">
+    <label>
+        <div>Subject</div>
+        <input type="text" name="subject" value="{{subject}}">
+    </label>
+    <label>
+        <div>Content</div>
+        <textarea name="content">{{content}}</textarea>
+    </label>
+    <div>
+        <button class="button" type="submit">Submit</button>
+    </div>
+</form>
+    <div>
+        {{error}}
+    </div>
+{% endblock %}

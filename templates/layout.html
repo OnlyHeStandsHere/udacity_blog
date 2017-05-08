@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style/skeleton.css">
+    <link rel="stylesheet" href="style/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+    <div class="flex-container">
+        <header class="sidebar">
+            <div class="sidebar-text">
+                <h1>Udacity</h1>
+                <h2>Multi-User Blog</h2>
+            </div>
+            <div class="sidebar-title">
+                Welcome, Jesse Maitland
+            </div>
+            <nav class="side-nav">
+                <ul class="side-nav-list">
+                    <li class="side-nav-item"><a href="/">Home</a></li>
+                    <li class="side-nav-item"><a href="/login">Log In</a></li>
+                    <li class="side-nav-item"><a href="/logout">Log Out</a></li>
+                    <li class="side-nav-item"><a href="/">My Posts</a></li>
+                    <li class="side-nav-item"><a href="/newpost">New Post</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content">
+            <div class="container">
+                <div class="title row">
+                    <div class="twelve columns">
+                        {% block title%}
+                        {% endblock %}
+                        <hr>
+                    </div>
+                </div>
+                {% block content %}
+                {% endblock %}
+             </div>
+        </main>
+    </div>
+</body>
+</html>

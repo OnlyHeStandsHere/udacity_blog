@@ -35,6 +35,8 @@ class Post(db.Model):
     subject = db.StringProperty(required=True)
     content = db.TextProperty(required=True)
     created = db.DateTimeProperty(auto_now_add=True)
+    updated = db.DateTimeProperty(auto_now=True)
+    user = db.ReferenceProperty(User, collection_name="user_posts")
 
     @classmethod
     def fetch_by_path_id(cls, post_path):

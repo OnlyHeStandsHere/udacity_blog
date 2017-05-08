@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome home pie eater!</h1>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %}
+<h1>Welcome</h1>
+{% endblock %}
+
+{% block content%}
+
+
+<div class="home-login">
+    <div class="home-item">
+        <a class="button" href="/login">Log In</a>
+    </div>
+
+    <div class="home-item">OR</div>
+
+    <div class="home-item">
+        <a class="button button-primary" href="/signup">Sign Up</a>
+    </div>
+</div>
+
+
+{% for post in posts %}
+<div class="row">
+    <div class="four columns">
+        <h5>{{ post.subject }}</h5>
+    </div>
+    <div class="eight columns">
+        <p>{{ post.content }}</p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
